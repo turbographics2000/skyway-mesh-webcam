@@ -1,12 +1,12 @@
 const myId = (new MediaStream).id;
 console.log(`myId:${myId}`);
+let stream = null;
 function appendVideo(stream) {
     const video = document.createElement('video');
     video.srcObject = stream;
     document.body.appendChild(video);
     video.play();
 }
-let stream = null;
 navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
     console.log(`streamId:${stream.id}`);
     appendVideo(stream);
